@@ -24,14 +24,14 @@ const Footer: React.FC = () => {
             </p>
             <div className="flex space-x-4">
               {['Twitter', 'LinkedIn', 'GitHub'].map((social) => (
-                <a
+                <button
                   key={social}
-                  href="#"
+                  type="button"
                   className="text-gray-400 hover:text-slash-gold hover:scale-110 hover:-translate-y-1 transition-all duration-200"
                 >
                   <span className="sr-only">{social}</span>
                   <div className="w-6 h-6 bg-gray-400 rounded"></div>
-                </a>
+                </button>
               ))}
             </div>
           </div>
@@ -43,12 +43,12 @@ const Footer: React.FC = () => {
               <ul className="space-y-3">
                 {links.map((link) => (
                   <li key={link}>
-                    <a
-                      href="#"
-                      className="text-gray-400 hover:text-white hover:translate-x-2 transition-all duration-200"
+                    <button
+                      type="button"
+                      className="text-gray-400 hover:text-white hover:translate-x-2 transition-all duration-200 text-left"
                     >
                       {link}
-                    </a>
+                    </button>
                   </li>
                 ))}
               </ul>
@@ -64,13 +64,13 @@ const Footer: React.FC = () => {
             </div>
             <div className="flex space-x-6 text-sm">
               {['Privacy Policy', 'Terms of Service', 'Cookie Policy'].map((link) => (
-                <a
+                <button
                   key={link}
-                  href="#"
+                  type="button"
                   className="text-gray-400 hover:text-white hover:-translate-y-1 transition-all duration-200"
                 >
                   {link}
-                </a>
+                </button>
               ))}
             </div>
           </div>

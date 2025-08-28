@@ -1,11 +1,12 @@
 import React, { 
-   CSSProperties, 
-   PropsWithChildren, 
-   useEffect, 
-   useId, 
-   useLayoutEffect, 
-   useRef, 
- } from "react"; 
+  CSSProperties, 
+  PropsWithChildren, 
+  useCallback,
+  useEffect, 
+  useId, 
+  useLayoutEffect, 
+  useRef, 
+} from "react"; 
  
  type ElectricBorderProps = PropsWithChildren<{ 
    color?: string; 
@@ -47,7 +48,7 @@ import React, {
    const rootRef = useRef<HTMLDivElement | null>(null); 
    const strokeRef = useRef<HTMLDivElement | null>(null); 
  
-   const updateAnim = () => { 
+   const updateAnim = useCallback(() => { 
      const svg = svgRef.current; 
      const host = rootRef.current; 
      if (!svg || !host) return; 
@@ -110,20 +111,20 @@ import React, {
            } catch {} 
          } 
        }); 
-     }); 
-   }; 
+     });
+  }, [speed, chaos, filterId]); 
  
-   useEffect(() => { 
-     updateAnim(); 
-   }, [speed, chaos]); 
+   useEffect(() => {
+    updateAnim();
+  }, [updateAnim]); 
  
-   useLayoutEffect(() => { 
-     if (!rootRef.current) return; 
-     const ro = new ResizeObserver(() => updateAnim()); 
-     ro.observe(rootRef.current); 
-     updateAnim(); 
-     return () => ro.disconnect(); 
-   }, []); 
+   useLayoutEffect(() => {
+    if (!rootRef.current) return;
+    const ro = new ResizeObserver(() => updateAnim());
+    ro.observe(rootRef.current);
+    updateAnim();
+    return () => ro.disconnect();
+  }, [updateAnim]); 
  
    const inheritRadius: CSSProperties = { 
      borderRadius: style?.borderRadius ?? "inherit", 
