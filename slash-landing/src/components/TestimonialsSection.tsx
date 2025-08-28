@@ -1,12 +1,7 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 
 const TestimonialsSection: React.FC = () => {
-  const [ref, inView] = useInView({
-    threshold: 0.1,
-    triggerOnce: true,
-  });
+  const ref = React.useRef<HTMLDivElement>(null);
 
   const testimonials = [
     {
@@ -35,114 +30,71 @@ const TestimonialsSection: React.FC = () => {
     },
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-      },
-    },
-  };
 
   return (
-    <section className="py-20 bg-gradient-to-b from-slate-900 to-slash-dark">
+    <section className="py-20 bg-gradient-to-b from-slate-900 to-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          ref={ref}
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+        <div ref={ref} className="text-center mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4 sm:mb-6 px-4 sm:px-0">
             Loved by{' '}
-            <span className="bg-gradient-to-r from-slash-gold to-yellow-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 bg-clip-text text-transparent">
               creators & businesses
             </span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto font-semibold px-4 sm:px-0">
             See what small business owners, creators, and influencers are saying about their free websites
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
-          variants={containerVariants}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-        >
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 px-4 sm:px-0">
           {testimonials.map((testimonial, index) => (
-            <motion.div
+            <div
               key={index}
-              className="bg-slate-800/30 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50 hover:border-slash-gold/30 transition-all duration-300 group"
-              variants={itemVariants}
-              whileHover={{ 
-                scale: 1.02,
-                boxShadow: "0 20px 40px rgba(212, 175, 55, 0.1)"
-              }}
+              className="relative bg-slate-800/30 backdrop-blur-sm rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-slate-700/50 hover:border-blue-500/30 transition-all duration-300 group overflow-hidden"
             >
-              <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 bg-gradient-to-br from-slash-gold to-yellow-400 rounded-full flex items-center justify-center text-slash-dark font-bold text-sm">
+              {/* Simplified Background Gradient */}
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="flex items-start space-x-3 sm:space-x-4">
+                <div className="flex-shrink-0 relative">
+                  <div className="w-10 sm:w-12 h-10 sm:h-12 bg-gradient-to-br from-purple-600 via-blue-600 to-cyan-500 rounded-full flex items-center justify-center text-white font-black text-xs sm:text-sm relative z-10 hover:scale-105 transition-transform duration-200">
                     {testimonial.avatar}
                   </div>
                 </div>
                 <div className="flex-1">
-                  <blockquote className="text-gray-300 text-lg leading-relaxed mb-4 group-hover:text-white transition-colors duration-300">
+                  <blockquote className="text-gray-300 text-base sm:text-lg leading-relaxed mb-4 group-hover:text-white transition-colors duration-300 relative z-10 font-bold">
                     "{testimonial.quote}"
                   </blockquote>
-                  <div>
-                    <div className="text-white font-semibold">
+                  <div className="relative z-10">
+                    <div className="text-white font-bold text-sm sm:text-base hover:text-blue-400 transition-colors duration-200">
                       {testimonial.author}
                     </div>
-                    <div className="text-slash-gold text-sm">
+                    <div className="text-blue-400 text-xs sm:text-sm font-semibold">
                       {testimonial.company}
                     </div>
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
 
         {/* Company logos section */}
-        <motion.div
-          className="mt-20 text-center"
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-        >
-          <p className="text-gray-400 text-sm mb-8 uppercase tracking-wider">
+        <div className="mt-12 sm:mt-16 md:mt-20 text-center px-4 sm:px-0">
+          <p className="text-gray-400 text-xs sm:text-sm mb-6 sm:mb-8 uppercase tracking-wider">
             Serving 50+ happy clients
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
+          <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 md:gap-8 opacity-60">
             {['Portrait Photography', 'Sweet Dreams Bakery', 'Fitness Coaching', 'UGC Creators'].map((company, index) => (
-              <motion.div
+              <div
                 key={index}
-                className="text-gray-400 font-semibold text-lg"
-                whileHover={{ 
-                  scale: 1.1,
-                  color: "#D4AF37",
-                }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                className="text-gray-400 font-bold text-sm sm:text-base md:text-lg hover:text-blue-400 hover:scale-105 transition-all duration-200"
               >
                 {company}
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

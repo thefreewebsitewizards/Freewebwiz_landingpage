@@ -1,8 +1,10 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import ElectricBorder from './ElectricBorder';
 
 const FeaturesSection: React.FC = () => {
+  const shouldReduceMotion = useReducedMotion();
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: true,
@@ -45,47 +47,49 @@ const FeaturesSection: React.FC = () => {
 
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
+    visible: { opacity: 1 }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-      },
-    },
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 }
   };
 
+
+
   return (
-    <section className="py-20 bg-black">
+    <section className="pt-0 pb-20 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-start mb-16">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-12 sm:mb-16">
           <motion.div
             ref={ref}
-            className="text-left"
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.8 }}
+            className="text-left mb-6 sm:mb-0"
+            initial={{ opacity: 0, y: shouldReduceMotion ? 10 : 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: shouldReduceMotion ? 10 : 30 }}
+            transition={{ 
+              duration: shouldReduceMotion ? 0.3 : 0.8,
+              type: "spring",
+              stiffness: 300,
+              damping: 30
+            }}
           >
-            <h2 className="text-5xl md:text-7xl font-light text-white mb-6 leading-tight" style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 300 }}>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight" style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 700 }}>
               Who we're built for
             </h2>
           </motion.div>
           
-          {/* Navigation Arrows - Top Right */}
+          {/* Navigation Arrows - Hidden on mobile, visible on larger screens */}
           <motion.div
-            className="flex gap-4 mt-4"
+            className="hidden sm:flex gap-4 mt-4"
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : { opacity: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            transition={{ 
+              duration: shouldReduceMotion ? 0.2 : 0.6, 
+              delay: shouldReduceMotion ? 0.1 : 0.3,
+              type: "spring",
+              stiffness: 400,
+              damping: 35
+            }}
           >
             <button className="w-12 h-12 rounded-full bg-gray-800/50 border border-gray-700/50 flex items-center justify-center hover:bg-gray-700/50 transition-all duration-300">
               <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -101,48 +105,136 @@ const FeaturesSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Overflow container for cards */}
-      <div className="relative pl-16">
-        <div className="overflow-x-auto scrollbar-hide">
+      {/* Cards container - responsive layout */}
+      <div className="relative">
+        {/* Mobile: Grid layout */}
+        <div className="block sm:hidden">
           <motion.div
-            className="flex gap-6"
-            style={{ width: 'max-content', paddingLeft: '0px', paddingRight: '64px' }}
+            className="grid grid-cols-1 gap-8 px-6"
             variants={containerVariants}
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
           >
-          {businessTypes.map((business, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              whileHover={{ 
-                scale: 1.02,
-                boxShadow: "0 20px 40px rgba(255, 255, 255, 0.1)"
-              }}
-              className="group cursor-pointer flex-shrink-0"
-              style={{ width: '320px' }}
-            >
-                 <div className="bg-gradient-to-br from-gray-900/90 to-black/95 backdrop-blur-lg rounded-xl p-6 transition-all duration-500 h-full border border-gray-800/50 hover:border-gray-700/70">
-                   {/* Mockup Visual */}
-                   <div className="h-40 mb-6 rounded-lg overflow-hidden relative bg-gradient-to-br from-gray-800/60 to-gray-900/80 shadow-lg">
-                     {/* Simple visual representation */}
-                     <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20"></div>
-                     <div className="absolute bottom-4 left-4 right-4">
-                       <div className="h-2 bg-white/30 rounded mb-2"></div>
-                       <div className="h-2 bg-white/20 rounded w-3/4"></div>
-                     </div>
-                   </div>
-                   
-                   <h3 className="text-lg font-medium text-white mb-3 group-hover:text-gray-200 transition-colors duration-300" style={{ fontFamily: 'Poppins, system-ui, sans-serif' }}>
-                     {business.title}
-                   </h3>
-                   <p className="text-gray-400 leading-relaxed text-sm" style={{ fontFamily: 'Poppins, system-ui, sans-serif' }}>
-                     {business.description}
-                   </p>
-                 </div>
-            </motion.div>
-          ))}
+            {businessTypes.slice(0, 4).map((business, index) => (
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                className="group cursor-pointer relative w-full p-4"
+                style={{ 
+                  transformStyle: shouldReduceMotion ? 'flat' : "preserve-3d",
+                  willChange: shouldReduceMotion ? 'auto' : 'transform'
+                }}
+              >
+                <ElectricBorder
+                  color="#7df9ff"
+                  speed={0.8}
+                  chaos={0.3}
+                  thickness={1.5}
+                  style={{ borderRadius: 16 }}
+                  className="h-full"
+                >
+                  <div className="bg-gradient-to-br from-gray-900/95 to-black/98 backdrop-blur-xl rounded-2xl p-8 h-full relative overflow-hidden">
+                    {/* Subtle background glow */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-transparent to-blue-500/5 rounded-2xl" />
+                    
+                    <div className="text-center relative z-10">
+                      <div className="w-16 h-16 bg-gradient-to-br from-cyan-400 via-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6 relative overflow-hidden shadow-lg shadow-cyan-500/20">
+                        <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-full" />
+                        <span className="text-2xl relative z-10 filter drop-shadow-sm">💼</span>
+                      </div>
+                      <h3 
+                        className="text-xl font-black text-white mb-4 leading-tight"
+                        style={{ fontFamily: 'Poppins, system-ui, sans-serif' }}
+                      >
+                        {business.title}
+                      </h3>
+                      <p 
+                        className="text-gray-300 text-base font-medium leading-relaxed"
+                        style={{ fontFamily: 'Poppins, system-ui, sans-serif' }}
+                      >
+                        {business.description}
+                      </p>
+                    </div>
+                  </div>
+                </ElectricBorder>
+              </motion.div>
+            ))}
           </motion.div>
+        </div>
+        
+        {/* Desktop: Horizontal scroll layout */}
+        <div className="hidden sm:block relative pl-16">
+          <div className="overflow-x-auto scrollbar-hide">
+            <motion.div
+              className="flex gap-8"
+              style={{ width: 'max-content', paddingLeft: '0px', paddingRight: '64px' }}
+              variants={containerVariants}
+              initial="hidden"
+              animate={inView ? "visible" : "hidden"}
+            >
+              {businessTypes.map((business, index) => (
+                <motion.div
+                  key={index}
+                  variants={itemVariants}
+                  className="group cursor-pointer flex-shrink-0 relative p-4"
+                  style={{ 
+                    width: '360px', 
+                    transformStyle: shouldReduceMotion ? 'flat' : "preserve-3d",
+                    willChange: shouldReduceMotion ? 'auto' : 'transform'
+                  }}
+                >
+                  <ElectricBorder
+                    color="#7df9ff"
+                    speed={0.8}
+                    chaos={0.3}
+                    thickness={1.5}
+                    style={{ borderRadius: 16 }}
+                    className="h-full"
+                  >
+                    <div className="bg-gradient-to-br from-gray-900/95 to-black/98 backdrop-blur-xl rounded-2xl p-8 h-full relative overflow-hidden">
+                      {/* Subtle background glow */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-transparent to-blue-500/5 rounded-2xl" />
+                      
+                      {/* Enhanced Mockup Visual */}
+                      <div className="h-44 mb-8 rounded-xl overflow-hidden relative bg-gradient-to-br from-gray-800/80 to-gray-900/90 shadow-xl border border-gray-700/30">
+                        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-blue-500/10"></div>
+                        <div className="absolute top-4 left-4 right-4">
+                          <div className="h-2 bg-gradient-to-r from-cyan-400/40 to-blue-500/40 rounded mb-3"></div>
+                          <div className="h-1.5 bg-white/20 rounded w-2/3"></div>
+                        </div>
+                        <div className="absolute bottom-5 left-5 right-5">
+                          <div className="h-2.5 bg-gradient-to-r from-cyan-400/60 to-blue-500/60 rounded mb-3 shadow-sm"></div>
+                          <div className="h-2 bg-white/30 rounded w-3/4"></div>
+                        </div>
+                        {/* Floating elements */}
+                        <div className="absolute top-1/2 right-5 w-3 h-3 bg-cyan-400/60 rounded-full animate-pulse"></div>
+                      </div>
+                      
+                      <div className="text-center relative z-10">
+                        <div className="w-18 h-18 bg-gradient-to-br from-cyan-400 via-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6 relative overflow-hidden shadow-xl shadow-cyan-500/25">
+                          <div className="absolute inset-0 bg-gradient-to-br from-white/25 to-transparent rounded-full" />
+                          <div className="absolute inset-0 bg-gradient-to-tl from-cyan-300/20 to-transparent rounded-full" />
+                          <span className="text-3xl relative z-10 filter drop-shadow-sm">💼</span>
+                        </div>
+                        <h3 
+                          className="text-2xl font-black text-white mb-4 leading-tight"
+                          style={{ fontFamily: 'Poppins, system-ui, sans-serif' }}
+                        >
+                          {business.title}
+                        </h3>
+                        <p 
+                          className="text-gray-300 text-base font-medium leading-relaxed"
+                          style={{ fontFamily: 'Poppins, system-ui, sans-serif' }}
+                        >
+                          {business.description}
+                        </p>
+                      </div>
+                    </div>
+                  </ElectricBorder>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
         </div>
       </div>
 
@@ -151,10 +243,16 @@ const FeaturesSection: React.FC = () => {
 
         {/* Stats Section */}
         <motion.div
-          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8"
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
+          className="mt-16 sm:mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8"
+          initial={{ opacity: 0, y: shouldReduceMotion ? 20 : 40 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: shouldReduceMotion ? 20 : 40 }}
+          transition={{ 
+            duration: shouldReduceMotion ? 0.3 : 0.6, 
+            delay: shouldReduceMotion ? 0.2 : 0.4,
+            type: "spring",
+            stiffness: 300,
+            damping: 30
+          }}
         >
           {[
             { value: "100+", label: "websites created" },
@@ -165,13 +263,19 @@ const FeaturesSection: React.FC = () => {
             <motion.div
               key={index}
               className="text-center"
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              whileHover={shouldReduceMotion ? {} : { scale: 1.03 }}
+              transition={{ 
+                type: "spring" as const, 
+                stiffness: shouldReduceMotion ? 500 : 400, 
+                damping: shouldReduceMotion ? 40 : 25,
+                mass: 0.8
+              }}
+              style={{ willChange: shouldReduceMotion ? 'auto' : 'transform' }}
             >
-              <div className="text-3xl md:text-4xl font-bold text-slash-gold mb-2">
+              <div className="text-2xl sm:text-3xl md:text-4xl font-black bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 bg-clip-text text-transparent mb-2">
                 {stat.value}
               </div>
-              <div className="text-gray-300 text-sm">
+              <div className="text-gray-300 text-xs sm:text-sm font-semibold">
                 {stat.label}
               </div>
             </motion.div>

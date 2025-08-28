@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 
 const Footer: React.FC = () => {
   const footerLinks = {
@@ -15,30 +14,24 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
           {/* Logo and description */}
           <div className="lg:col-span-2">
-            <motion.div
-              className="flex items-center mb-4"
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 400, damping: 10 }}
-            >
+            <div className="flex items-center mb-4 hover:scale-105 transition-transform duration-200">
               <span className="text-2xl font-bold text-white tracking-tight">
                 FreeWebWiz
               </span>
-            </motion.div>
+            </div>
             <p className="text-gray-400 mb-6 max-w-md">
               FreeWebWiz creates professional, responsive websites for small businesses, creators, and influencers at absolutely no cost. Building your digital presence, one free website at a time.
             </p>
             <div className="flex space-x-4">
               {['Twitter', 'LinkedIn', 'GitHub'].map((social) => (
-                <motion.a
+                <a
                   key={social}
                   href="#"
-                  className="text-gray-400 hover:text-slash-gold transition-colors duration-200"
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                  className="text-gray-400 hover:text-slash-gold hover:scale-110 hover:-translate-y-1 transition-all duration-200"
                 >
                   <span className="sr-only">{social}</span>
                   <div className="w-6 h-6 bg-gray-400 rounded"></div>
-                </motion.a>
+                </a>
               ))}
             </div>
           </div>
@@ -50,14 +43,12 @@ const Footer: React.FC = () => {
               <ul className="space-y-3">
                 {links.map((link) => (
                   <li key={link}>
-                    <motion.a
+                    <a
                       href="#"
-                      className="text-gray-400 hover:text-white transition-colors duration-200"
-                      whileHover={{ x: 5 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                      className="text-gray-400 hover:text-white hover:translate-x-2 transition-all duration-200"
                     >
                       {link}
-                    </motion.a>
+                    </a>
                   </li>
                 ))}
               </ul>
@@ -73,15 +64,13 @@ const Footer: React.FC = () => {
             </div>
             <div className="flex space-x-6 text-sm">
               {['Privacy Policy', 'Terms of Service', 'Cookie Policy'].map((link) => (
-                <motion.a
+                <a
                   key={link}
                   href="#"
-                  className="text-gray-400 hover:text-white transition-colors duration-200"
-                  whileHover={{ y: -2 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                  className="text-gray-400 hover:text-white hover:-translate-y-1 transition-all duration-200"
                 >
                   {link}
-                </motion.a>
+                </a>
               ))}
             </div>
           </div>

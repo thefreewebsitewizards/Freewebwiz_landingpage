@@ -1,26 +1,27 @@
-import React, { useState, useEffect } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import React, { useMemo } from 'react';
+import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
 const HeroSection: React.FC = () => {
-  const [scrollY, setScrollY] = useState(0);
   const { scrollYProgress } = useScroll();
+  const shouldReduceMotion = useReducedMotion();
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: false,
   });
 
-  // Transform values for scroll animations
-  const phoneScale = useTransform(scrollYProgress, [0, 0.3], [1, 0.8]);
+  // Optimized transform values for scroll animations
+  const phoneScale = useTransform(scrollYProgress, [0, 0.3], [1, shouldReduceMotion ? 0.95 : 0.8]);
   const phoneOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
   const textOpacity = useTransform(scrollYProgress, [0.2, 0.5], [0, 1]);
-  const textY = useTransform(scrollYProgress, [0.2, 0.5], [100, 0]);
+  const textY = useTransform(scrollYProgress, [0.2, 0.5], [shouldReduceMotion ? 20 : 100, 0]);
 
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  // Memoize animation variants to prevent recreation
+  const animationVariants = useMemo(() => ({
+    initial: { y: shouldReduceMotion ? 20 : 100, opacity: 0 },
+    animate: { y: 0, opacity: 1 },
+    transition: { duration: shouldReduceMotion ? 0.3 : 1, delay: 0.5 }
+  }), [shouldReduceMotion]);
 
   return (
     <div className="relative min-h-screen overflow-hidden">
@@ -30,28 +31,28 @@ const HeroSection: React.FC = () => {
       {/* Animated background elements */}
       <div className="absolute inset-0">
         <motion.div
-          className="absolute top-20 left-10 w-2 h-2 bg-slash-gold rounded-full"
-          animate={{
+          className="absolute top-20 left-10 w-2 h-2 bg-blue-400 rounded-full will-change-transform"
+          animate={shouldReduceMotion ? {} : {
             y: [0, -20, 0],
             opacity: [0.3, 1, 0.3],
           }}
           transition={{
-            duration: 3,
-            repeat: Infinity,
+            duration: shouldReduceMotion ? 0 : 3,
+            repeat: shouldReduceMotion ? 0 : Infinity,
             ease: "easeInOut",
           }}
         />
         <motion.div
-          className="absolute top-40 right-20 w-1 h-1 bg-white rounded-full"
-          animate={{
+          className="absolute top-40 right-20 w-1 h-1 bg-white rounded-full will-change-transform"
+          animate={shouldReduceMotion ? {} : {
             y: [0, -15, 0],
             opacity: [0.2, 0.8, 0.2],
           }}
           transition={{
-            duration: 4,
-            repeat: Infinity,
+            duration: shouldReduceMotion ? 0 : 4,
+            repeat: shouldReduceMotion ? 0 : Infinity,
             ease: "easeInOut",
-            delay: 1,
+            delay: shouldReduceMotion ? 0 : 1,
           }}
         />
       </div>
@@ -59,24 +60,22 @@ const HeroSection: React.FC = () => {
       <div ref={ref} className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4">
         {/* Mobile Phone Animation */}
         <motion.div
-          className="relative mb-8"
+          className="relative mb-8 will-change-transform"
           style={{
             scale: phoneScale,
             opacity: phoneOpacity,
           }}
-          initial={{ y: 100, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1, delay: 0.5 }}
+          {...animationVariants}
         >
           {/* Phone Frame */}
           <div className="relative w-64 h-[500px] bg-gradient-to-b from-gray-800 to-gray-900 rounded-[3rem] p-2 shadow-2xl">
             {/* Screen */}
-            <div className="w-full h-full bg-gradient-to-br from-slash-gold via-purple-500 to-blue-500 rounded-[2.5rem] relative overflow-hidden">
+            <div className="w-full h-full bg-gradient-to-br from-purple-600 via-blue-600 to-cyan-500 rounded-[2.5rem] relative overflow-hidden">
               {/* Website preview mockup */}
               <div className="absolute top-4 left-4 right-4 bottom-4 bg-white rounded-2xl p-4 flex flex-col">
                 <div className="h-8 bg-gray-100 rounded mb-3 flex items-center px-2">
                   <div className="w-2 h-2 bg-red-400 rounded-full mr-1"></div>
-                  <div className="w-2 h-2 bg-yellow-400 rounded-full mr-1"></div>
+                  <div className="w-2 h-2 bg-blue-400 rounded-full mr-1"></div>
                   <div className="w-2 h-2 bg-green-400 rounded-full"></div>
                 </div>
                 <div className="flex-1 space-y-2">
@@ -89,14 +88,14 @@ const HeroSection: React.FC = () => {
               
               {/* Card shine effect */}
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                animate={{
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent will-change-transform"
+                animate={shouldReduceMotion ? {} : {
                   x: [-100, 300],
                 }}
                 transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  repeatDelay: 2,
+                  duration: shouldReduceMotion ? 0 : 3,
+                  repeat: shouldReduceMotion ? 0 : Infinity,
+                  repeatDelay: shouldReduceMotion ? 0 : 2,
                   ease: "easeInOut",
                 }}
               />
@@ -109,20 +108,20 @@ const HeroSection: React.FC = () => {
 
         {/* Text Content with Scroll Animation */}
         <motion.div
-          className="text-center max-w-4xl"
+          className="text-center max-w-4xl will-change-transform"
           style={{
-            opacity: scrollY > 100 ? textOpacity : 1,
-            y: scrollY > 100 ? textY : 0,
+            opacity: textOpacity,
+            y: textY,
           }}
         >
           <motion.h1
-            className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight"
+            className="text-5xl md:text-7xl font-black text-white mb-6 leading-tight"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1 }}
           >
             Free{' '}
-            <span className="bg-gradient-to-r from-slash-gold to-yellow-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 bg-clip-text text-transparent">
               Professional
             </span>
             <br />
@@ -130,7 +129,7 @@ const HeroSection: React.FC = () => {
           </motion.h1>
           
           <motion.p
-            className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto"
+            className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto font-semibold"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1.3 }}
@@ -145,7 +144,7 @@ const HeroSection: React.FC = () => {
             transition={{ duration: 1, delay: 1.6 }}
           >
             <motion.button
-              className="bg-white text-slash-dark px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors duration-200"
+              className="bg-white text-slate-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors duration-200"
               whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(255, 255, 255, 0.1)" }}
               whileTap={{ scale: 0.95 }}
             >
@@ -153,7 +152,7 @@ const HeroSection: React.FC = () => {
             </motion.button>
             
             <motion.button
-              className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-slash-dark transition-all duration-200"
+              className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-slate-900 transition-all duration-200"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
