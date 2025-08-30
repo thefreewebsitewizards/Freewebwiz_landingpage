@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
-const PricingSection: React.FC = () => {
+const PricingSection: React.FC = React.memo(() => {
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: true,
@@ -80,7 +80,7 @@ const PricingSection: React.FC = () => {
   // Plans data
 
   return (
-    <section ref={ref} className="py-16 sm:py-20 bg-gradient-to-b from-slate-900 to-slate-900" id="pricing">
+    <section ref={ref} className="py-16 sm:py-20 bg-gradient-to-b from-slate-950 via-gray-950 to-black" id="pricing">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           className="text-center mb-12 sm:mb-16"
@@ -199,6 +199,6 @@ const PricingSection: React.FC = () => {
       </div>
     </section>
   );
-};
+});
 
 export default PricingSection;

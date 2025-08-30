@@ -39,7 +39,7 @@ const CardNav: React.FC<CardNavProps> = ({
 }) => {
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  // Removed unused mousePosition state
   const [glowIntensity, setGlowIntensity] = useState(0);
   const [glowPosition, setGlowPosition] = useState({ x: 0, y: 0 });
   const navRef = useRef<HTMLDivElement | null>(null);
@@ -120,7 +120,7 @@ const CardNav: React.FC<CardNavProps> = ({
     );
 
     return tl;
-  }, [ease]);
+  }, []);
 
   useLayoutEffect(() => {
     const tl = createTimeline();
@@ -229,7 +229,6 @@ const CardNav: React.FC<CardNavProps> = ({
     const mouseX = e.clientX;
     const mouseY = e.clientY;
     
-    setMousePosition({ x: mouseX, y: mouseY });
     calculateProximity(mouseX, mouseY);
   }, [calculateProximity]);
 
@@ -297,7 +296,7 @@ const CardNav: React.FC<CardNavProps> = ({
           </div>
 
           <div className="logo-container flex items-center md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 order-1 md:order-none">
-            <img src={logo} alt={logoAlt} className="logo h-[24px] xs:h-[28px]" />
+            <img src={logo} alt={logoAlt} className="logo h-[56px] xs:h-[60px] sm:h-[64px] md:h-[68px] lg:h-[72px] xl:h-[76px] w-auto object-contain transition-all duration-300 hover:scale-105" />
           </div>
 
           <button

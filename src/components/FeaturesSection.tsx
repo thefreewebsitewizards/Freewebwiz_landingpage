@@ -2,7 +2,7 @@ import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
-const FeaturesSection: React.FC = () => {
+const FeaturesSection: React.FC = React.memo(() => {
   const shouldReduceMotion = useReducedMotion();
   const [ref, inView] = useInView({
     threshold: 0.1,
@@ -45,7 +45,7 @@ const FeaturesSection: React.FC = () => {
 
 
   return (
-    <section id="features" className="py-16 sm:py-20 bg-black">
+    <section id="features" className="py-16 sm:py-20 bg-gradient-to-b from-gray-800 via-gray-900 to-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
@@ -95,6 +95,6 @@ const FeaturesSection: React.FC = () => {
       </div>
     </section>
   );
-};
+});
 
 export default FeaturesSection;

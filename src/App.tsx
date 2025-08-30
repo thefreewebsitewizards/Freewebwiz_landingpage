@@ -2,12 +2,14 @@ import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import CardNav from './components/CardNav';
 import TargetCursor from './components/TargetCursor';
-import logo from './logo.svg';
 import HeroScrollSection from './components/HeroScrollSection';
 import SectionTransition from './components/SectionTransition';
 import ScrollAnimations from './components/ScrollAnimations';
 import LoadingScreen from './components/LoadingScreen';
 import PageTransition from './components/PageTransition';
+
+// Using logo from public folder
+const logo = '/freewebwiz-logo.png';
 
 // Lazy load non-critical sections for better performance
 const ProcessSection = lazy(() => import('./components/ProcessSection'));

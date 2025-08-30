@@ -34,24 +34,24 @@ const HeroScrollSection: React.FC = () => {
           <div className="lg:hidden flex flex-col items-center space-y-8 sm:space-y-12">
             {/* Left Side Content - Top on mobile */}
             <div className="text-center space-y-4 sm:space-y-6 w-full">
-              <h2 className="text-3xl xs:text-4xl sm:text-5xl font-black text-white leading-tight transition-all duration-1000 hover:scale-105" style={{ fontFamily: 'Poppins, system-ui, sans-serif' }}>
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-purple-200 to-white drop-shadow-2xl transition-all duration-700 hover:from-purple-100 hover:via-white hover:to-purple-100" style={{ textShadow: '0 4px 20px rgba(255,255,255,0.3), 0 8px 40px rgba(147,51,234,0.2)' }}>FREE</span>
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-cyan-400 to-purple-400 transition-all duration-700 hover:from-purple-300 hover:via-cyan-300 hover:to-purple-300" style={{ textShadow: '0 6px 25px rgba(147,51,234,0.4), 0 12px 50px rgba(6,182,212,0.3)' }}>WEBSITES</span>
-                <span className="block text-white drop-shadow-2xl transition-all duration-700 hover:text-yellow-100" style={{ textShadow: '0 8px 30px rgba(255,255,255,0.4), 0 16px 60px rgba(255,215,0,0.2)' }}>THAT WIN!</span>
+              <h2 className="text-[40px] xs:text-[44px] sm:text-[48px] font-black text-white leading-tight transition-all duration-1000 hover:scale-105" style={{ fontFamily: 'Inter, system-ui, sans-serif', letterSpacing: '-0.02em' }}>
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-100 to-white drop-shadow-2xl transition-all duration-700 hover:from-gray-50 hover:via-white hover:to-gray-50" style={{ textShadow: '0 0 20px rgba(255,255,255,0.8), 0 0 40px rgba(255,255,255,0.4), inset 0 1px 0 rgba(255,255,255,0.5)', filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.3))' }}>FREE</span>
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-white transition-all duration-700 hover:from-gray-100 hover:via-white hover:to-gray-100" style={{ textShadow: '0 0 25px rgba(255,255,255,0.9), 0 0 50px rgba(255,255,255,0.5), inset 0 1px 0 rgba(255,255,255,0.6)', filter: 'drop-shadow(0 3px 6px rgba(0,0,0,0.4))' }}>WEBSITES</span>
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-100 to-white drop-shadow-2xl transition-all duration-700 hover:from-gray-50 hover:via-white hover:to-gray-50" style={{ textShadow: '0 0 30px rgba(255,255,255,1), 0 0 60px rgba(255,255,255,0.6), inset 0 1px 0 rgba(255,255,255,0.7)', filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.5))' }}>THAT WIN!</span>
               </h2>
-              <p className="text-lg xs:text-xl sm:text-2xl text-gray-200 font-bold leading-relaxed max-w-md mx-auto transition-all duration-500 hover:text-gray-100">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 transition-all duration-500 hover:from-cyan-300 hover:to-purple-300" style={{ textShadow: '0 2px 15px rgba(6,182,212,0.3)' }}>Professional websites.</span>
+              <p className="text-[16px] xs:text-[18px] sm:text-[20px] font-medium leading-relaxed max-w-md mx-auto transition-all duration-500" style={{ fontFamily: 'Inter, system-ui, sans-serif', letterSpacing: '0.01em', color: 'rgba(255, 255, 255, 0.85)' }}>
+                <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-100 to-white transition-all duration-500 hover:from-gray-50 hover:to-gray-50" style={{ textShadow: '0 0 8px rgba(255,255,255,0.4), 0 0 16px rgba(255,255,255,0.2)', filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.2))' }}>Professional</span> <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-100 to-white transition-all duration-500 hover:from-gray-50 hover:to-gray-50" style={{ textShadow: '0 0 8px rgba(255,255,255,0.4), 0 0 16px rgba(255,255,255,0.2)', filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.2))' }}>websites.</span>
                 <br />
-                <span className="text-white transition-all duration-500 hover:text-gray-100" style={{ textShadow: '0 2px 18px rgba(255,255,255,0.3)' }}>Zero cost.</span>
+                <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-100 to-white transition-all duration-500 hover:from-gray-50 hover:to-gray-50" style={{ textShadow: '0 0 8px rgba(255,255,255,0.4), 0 0 16px rgba(255,255,255,0.2)', filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.2))' }}>Zero cost</span><span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-100 to-white transition-all duration-500 hover:from-gray-50 hover:to-gray-50" style={{ textShadow: '0 0 8px rgba(255,255,255,0.4), 0 0 16px rgba(255,255,255,0.2)', filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.2))' }}>.</span>
                 <br />
-                <span className="text-yellow-400 font-black transition-all duration-500 hover:text-yellow-300" style={{ textShadow: '0 3px 20px rgba(255,215,0,0.4), 0 6px 40px rgba(255,215,0,0.2)' }}>Maximum impact.</span>
+                <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-50 to-white font-semibold transition-all duration-500 hover:from-gray-100 hover:to-gray-100" style={{ textShadow: '0 0 10px rgba(255,255,255,0.5), 0 0 20px rgba(255,255,255,0.3)', filter: 'drop-shadow(0 2px 3px rgba(0,0,0,0.3))' }}>Maximum impact</span><span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-50 to-white font-semibold transition-all duration-500 hover:from-gray-100 hover:to-gray-100" style={{ textShadow: '0 0 10px rgba(255,255,255,0.5), 0 0 20px rgba(255,255,255,0.3)', filter: 'drop-shadow(0 2px 3px rgba(0,0,0,0.3))' }}>.</span>
               </p>
               <button 
                 onClick={() => {
                   const processSection = document.getElementById('process');
                   processSection?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="cursor-target group bg-gradient-to-r from-purple-600 to-cyan-600 border-2 border-white text-white px-4 xs:px-6 sm:px-8 py-3 sm:py-4 rounded-full font-black text-sm xs:text-base sm:text-lg transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-purple-500/50 hover:border-yellow-400 w-full sm:w-auto max-w-xs xs:max-w-sm sm:max-w-none mx-auto sm:mx-0"
+                className="cursor-target group bg-gradient-to-r from-red-600 to-red-500 border-2 border-white text-white px-4 xs:px-6 sm:px-8 py-3 sm:py-4 rounded-full font-black text-sm xs:text-base sm:text-lg transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-red-500/50 hover:border-yellow-400 w-full sm:w-auto max-w-xs xs:max-w-sm sm:max-w-none mx-auto sm:mx-0"
               >
                 <span className="flex items-center gap-2 justify-center">
                   SEE HOW
@@ -189,14 +189,14 @@ const HeroScrollSection: React.FC = () => {
 
             {/* Right Side Content - Bottom on mobile */}
             <div className="text-center space-y-4 sm:space-y-6 w-full">
-              <h2 className="text-3xl xs:text-4xl sm:text-5xl font-black text-white leading-tight transition-all duration-1000 hover:scale-105" style={{ fontFamily: 'Poppins, system-ui, sans-serif' }}>
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-400 to-red-400 drop-shadow-2xl transition-all duration-700 hover:from-yellow-300 hover:via-orange-300 hover:to-red-300" style={{ textShadow: '0 6px 25px rgba(255,215,0,0.4), 0 12px 50px rgba(255,69,0,0.3)' }}>READY TO</span>
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 transition-all duration-700 hover:from-cyan-300 hover:via-blue-300 hover:to-purple-300" style={{ textShadow: '0 8px 30px rgba(6,182,212,0.4), 0 16px 60px rgba(147,51,234,0.3)' }}>DOMINATE?</span>
+              <h2 className="text-[40px] xs:text-[44px] sm:text-[48px] font-black text-white leading-tight transition-all duration-1000 hover:scale-105" style={{ fontFamily: 'Inter, system-ui, sans-serif', letterSpacing: '-0.02em' }}>
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-100 to-white drop-shadow-2xl transition-all duration-700 hover:from-gray-50 hover:via-white hover:to-gray-50" style={{ textShadow: '0 0 20px rgba(255,255,255,0.8), 0 0 40px rgba(255,255,255,0.4), inset 0 1px 0 rgba(255,255,255,0.5)', filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.3))' }}>READY TO</span>
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-white transition-all duration-700 hover:from-gray-100 hover:via-white hover:to-gray-100" style={{ textShadow: '0 0 25px rgba(255,255,255,0.9), 0 0 50px rgba(255,255,255,0.5), inset 0 1px 0 rgba(255,255,255,0.6)', filter: 'drop-shadow(0 3px 6px rgba(0,0,0,0.4))' }}>DOMINATE?</span>
               </h2>
-              <p className="text-lg xs:text-xl sm:text-2xl text-gray-200 font-bold leading-relaxed max-w-md mx-auto transition-all duration-500 hover:text-gray-100">
-                <span className="text-white transition-all duration-500 hover:text-gray-100" style={{ textShadow: '0 2px 15px rgba(255,255,255,0.3)' }}>Join</span> <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-cyan-400 font-black transition-all duration-500 hover:from-green-300 hover:to-cyan-300" style={{ textShadow: '0 3px 18px rgba(34,197,94,0.4)' }}>500+</span> <span className="text-white transition-all duration-500 hover:text-gray-100" style={{ textShadow: '0 2px 15px rgba(255,255,255,0.3)' }}>winners.</span>
+              <p className="text-[16px] xs:text-[18px] sm:text-[20px] font-medium leading-relaxed max-w-md mx-auto transition-all duration-500" style={{ fontFamily: 'Inter, system-ui, sans-serif', letterSpacing: '0.01em', color: 'rgba(255, 255, 255, 0.85)' }}>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-100 to-white transition-all duration-500 hover:from-gray-50 hover:to-gray-50" style={{ textShadow: '0 0 8px rgba(255,255,255,0.4), 0 0 16px rgba(255,255,255,0.2)', filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.2))' }}>Join</span> <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-50 to-white font-semibold transition-all duration-500 hover:from-gray-100 hover:to-gray-100" style={{ textShadow: '0 0 10px rgba(255,255,255,0.5), 0 0 20px rgba(255,255,255,0.3)', filter: 'drop-shadow(0 2px 3px rgba(0,0,0,0.3))' }}>500+</span> <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-100 to-white transition-all duration-500 hover:from-gray-50 hover:to-gray-50" style={{ textShadow: '0 0 8px rgba(255,255,255,0.4), 0 0 16px rgba(255,255,255,0.2)', filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.2))' }}>winners.</span>
                 <br />
-                <span className="text-yellow-400 font-black transition-all duration-500 hover:text-yellow-300" style={{ textShadow: '0 4px 22px rgba(255,215,0,0.5), 0 8px 44px rgba(255,215,0,0.25)' }}>Start today!</span>
+                <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-50 to-white font-semibold transition-all duration-500 hover:from-gray-100 hover:to-gray-100" style={{ textShadow: '0 0 10px rgba(255,255,255,0.5), 0 0 20px rgba(255,255,255,0.3)', filter: 'drop-shadow(0 2px 3px rgba(0,0,0,0.3))' }}>Start today!</span>
               </p>
               <button 
                 onClick={() => {
@@ -208,9 +208,9 @@ const HeroScrollSection: React.FC = () => {
                     window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
                   }
                 }}
-                className="cursor-target group bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 text-white px-4 xs:px-6 sm:px-8 py-3 sm:py-4 rounded-full font-black text-sm xs:text-base sm:text-lg transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-orange-500/50 border-2 border-white hover:border-yellow-300 overflow-hidden relative w-full sm:w-auto max-w-xs xs:max-w-sm sm:max-w-none mx-auto sm:mx-0"
+                className="cursor-target group bg-gradient-to-r from-red-600 to-red-500 text-white px-4 xs:px-6 sm:px-8 py-3 sm:py-4 rounded-full font-black text-sm xs:text-base sm:text-lg transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-red-500/50 border-2 border-white hover:border-yellow-300 overflow-hidden relative w-full sm:w-auto max-w-xs xs:max-w-sm sm:max-w-none mx-auto sm:mx-0"
               >
-                <span className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-orange-400 to-red-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                <span className="absolute inset-0 bg-gradient-to-r from-red-700 to-red-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                 <span className="relative z-10 flex items-center gap-2 justify-center">
                   GET YOURS NOW
                   <span className="group-hover:translate-x-1 transition-transform duration-200 text-xl">🚀</span>
@@ -223,17 +223,17 @@ const HeroScrollSection: React.FC = () => {
           <div className="hidden lg:grid grid-cols-3 gap-12 items-center">
             {/* Left Side Content */}
             <div className="text-center lg:text-right space-y-4 sm:space-y-6 order-2 lg:order-1">
-              <h2 className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-white leading-tight transition-all duration-1000 hover:scale-105" style={{ fontFamily: 'Poppins, system-ui, sans-serif' }}>
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-purple-200 to-white drop-shadow-2xl transition-all duration-700 hover:from-purple-100 hover:via-white hover:to-purple-100" style={{ textShadow: '0 4px 20px rgba(255,255,255,0.3), 0 8px 40px rgba(147,51,234,0.2)' }}>FREE</span>
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-cyan-400 to-purple-400 transition-all duration-700 hover:from-purple-300 hover:via-cyan-300 hover:to-purple-300" style={{ textShadow: '0 6px 25px rgba(147,51,234,0.4), 0 12px 50px rgba(6,182,212,0.3)' }}>WEBSITES</span>
-                <span className="block text-white drop-shadow-2xl transition-all duration-700 hover:text-yellow-100" style={{ textShadow: '0 8px 30px rgba(255,255,255,0.4), 0 16px 60px rgba(255,215,0,0.2)' }}>THAT WIN!</span>
+              <h2 className="text-[40px] xs:text-[44px] sm:text-[48px] lg:text-[52px] xl:text-[56px] font-black text-white leading-tight transition-all duration-1000 hover:scale-105" style={{ fontFamily: 'Inter, system-ui, sans-serif', letterSpacing: '-0.02em' }}>
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-100 to-white drop-shadow-2xl transition-all duration-700 hover:from-gray-50 hover:via-white hover:to-gray-50" style={{ textShadow: '0 0 20px rgba(255,255,255,0.8), 0 0 40px rgba(255,255,255,0.4), inset 0 1px 0 rgba(255,255,255,0.5)', filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.3))' }}>FREE</span>
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-white transition-all duration-700 hover:from-gray-100 hover:via-white hover:to-gray-100" style={{ textShadow: '0 0 25px rgba(255,255,255,0.9), 0 0 50px rgba(255,255,255,0.5), inset 0 1px 0 rgba(255,255,255,0.6)', filter: 'drop-shadow(0 3px 6px rgba(0,0,0,0.4))' }}>WEBSITES</span>
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-100 to-white drop-shadow-2xl transition-all duration-700 hover:from-gray-50 hover:via-white hover:to-gray-50" style={{ textShadow: '0 0 30px rgba(255,255,255,1), 0 0 60px rgba(255,255,255,0.6), inset 0 1px 0 rgba(255,255,255,0.7)', filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.5))' }}>THAT WIN!</span>
               </h2>
-              <p className="text-lg xs:text-xl sm:text-2xl lg:text-3xl text-gray-200 font-bold leading-relaxed max-w-md mx-auto lg:mx-0 lg:ml-auto transition-all duration-500 hover:text-gray-100">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 transition-all duration-500 hover:from-cyan-300 hover:to-purple-300" style={{ textShadow: '0 2px 15px rgba(6,182,212,0.3)' }}>Professional websites.</span>
+              <p className="text-[16px] xs:text-[18px] sm:text-[20px] lg:text-[22px] font-medium leading-relaxed max-w-md mx-auto lg:mx-0 lg:ml-auto transition-all duration-500" style={{ fontFamily: 'Inter, system-ui, sans-serif', letterSpacing: '0.01em', color: 'rgba(255, 255, 255, 0.85)' }}>
+                <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-100 to-white transition-all duration-500 hover:from-gray-50 hover:to-gray-50" style={{ textShadow: '0 0 8px rgba(255,255,255,0.4), 0 0 16px rgba(255,255,255,0.2)', filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.2))' }}>Professional</span> <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-100 to-white transition-all duration-500 hover:from-gray-50 hover:to-gray-50" style={{ textShadow: '0 0 8px rgba(255,255,255,0.4), 0 0 16px rgba(255,255,255,0.2)', filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.2))' }}>websites.</span>
                 <br />
-                <span className="text-white transition-all duration-500 hover:text-gray-100" style={{ textShadow: '0 2px 18px rgba(255,255,255,0.3)' }}>Zero cost.</span>
+                <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-100 to-white transition-all duration-500 hover:from-gray-50 hover:to-gray-50" style={{ textShadow: '0 0 8px rgba(255,255,255,0.4), 0 0 16px rgba(255,255,255,0.2)', filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.2))' }}>Zero cost</span><span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-100 to-white transition-all duration-500 hover:from-gray-50 hover:to-gray-50" style={{ textShadow: '0 0 8px rgba(255,255,255,0.4), 0 0 16px rgba(255,255,255,0.2)', filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.2))' }}>.</span>
                 <br />
-                <span className="text-yellow-400 font-black transition-all duration-500 hover:text-yellow-300" style={{ textShadow: '0 3px 20px rgba(255,215,0,0.4), 0 6px 40px rgba(255,215,0,0.2)' }}>Maximum impact.</span>
+                <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-50 to-white font-semibold transition-all duration-500 hover:from-gray-100 hover:to-gray-100" style={{ textShadow: '0 0 10px rgba(255,255,255,0.5), 0 0 20px rgba(255,255,255,0.3)', filter: 'drop-shadow(0 2px 3px rgba(0,0,0,0.3))' }}>Maximum impact</span><span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-50 to-white font-semibold transition-all duration-500 hover:from-gray-100 hover:to-gray-100" style={{ textShadow: '0 0 10px rgba(255,255,255,0.5), 0 0 20px rgba(255,255,255,0.3)', filter: 'drop-shadow(0 2px 3px rgba(0,0,0,0.3))' }}>.</span>
               </p>
               <div className="flex justify-center lg:justify-end">
                 <button 
@@ -241,7 +241,7 @@ const HeroScrollSection: React.FC = () => {
                     const processSection = document.getElementById('process');
                     processSection?.scrollIntoView({ behavior: 'smooth' });
                   }}
-                  className="cursor-target group bg-gradient-to-r from-purple-600 to-cyan-600 border-2 border-white text-white px-4 xs:px-6 sm:px-8 py-3 sm:py-4 rounded-full font-black text-sm xs:text-base sm:text-lg transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-purple-500/50 hover:border-yellow-400"
+                  className="cursor-target group bg-gradient-to-r from-red-600 to-red-500 border-2 border-white text-white px-4 xs:px-6 sm:px-8 py-3 sm:py-4 rounded-full font-black text-sm xs:text-base sm:text-lg transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-red-500/50 hover:border-yellow-400"
                 >
                   <span className="flex items-center gap-2">
                     SEE HOW
@@ -264,7 +264,7 @@ const HeroScrollSection: React.FC = () => {
                         <div className="w-3 xl:w-4 h-3 xl:h-4 bg-blue-400 rounded-full"></div>
                         <div className="w-3 xl:w-4 h-3 xl:h-4 bg-green-400 rounded-full"></div>
                       </div>
-                      <div className="flex-1 bg-gradient-to-r from-purple-50 to-cyan-50 rounded-lg px-4 py-2 text-sm xl:text-base font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-cyan-600 animate-pulse overflow-hidden">
+                      <div className="flex-1 bg-gradient-to-r from-gray-50 to-white rounded-lg px-4 py-2 text-sm xl:text-base font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-100 to-white animate-pulse overflow-hidden" style={{ textShadow: '0 0 10px rgba(255,255,255,0.6), 0 0 20px rgba(255,255,255,0.3)', filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.2))' }}>
                         <span className="block truncate">https://yourweb...</span>
                       </div>
                     </div>
@@ -362,13 +362,13 @@ const HeroScrollSection: React.FC = () => {
             {/* Right Side Content */}
             <div className="text-center lg:text-left space-y-4 sm:space-y-6 order-3">
               <h2 className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-white leading-tight transition-all duration-1000 hover:scale-105" style={{ fontFamily: 'Poppins, system-ui, sans-serif' }}>
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-400 to-red-400 drop-shadow-2xl transition-all duration-700 hover:from-yellow-300 hover:via-orange-300 hover:to-red-300" style={{ textShadow: '0 6px 25px rgba(255,215,0,0.4), 0 12px 50px rgba(255,69,0,0.3)' }}>READY TO</span>
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 transition-all duration-700 hover:from-cyan-300 hover:via-blue-300 hover:to-purple-300" style={{ textShadow: '0 8px 30px rgba(6,182,212,0.4), 0 16px 60px rgba(147,51,234,0.3)' }}>DOMINATE?</span>
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-100 to-white drop-shadow-2xl transition-all duration-700 hover:from-gray-50 hover:via-white hover:to-gray-50" style={{ textShadow: '0 0 20px rgba(255,255,255,0.8), 0 0 40px rgba(255,255,255,0.4), inset 0 1px 0 rgba(255,255,255,0.5)', filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.3))' }}>READY TO</span>
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-white transition-all duration-700 hover:from-gray-100 hover:via-white hover:to-gray-100" style={{ textShadow: '0 0 25px rgba(255,255,255,0.9), 0 0 50px rgba(255,255,255,0.5), inset 0 1px 0 rgba(255,255,255,0.6)', filter: 'drop-shadow(0 3px 6px rgba(0,0,0,0.4))' }}>DOMINATE?</span>
               </h2>
               <p className="text-lg xs:text-xl sm:text-2xl lg:text-3xl text-gray-200 font-bold leading-relaxed max-w-md mx-auto lg:mx-0 transition-all duration-500 hover:text-gray-100">
-                <span className="text-white transition-all duration-500 hover:text-gray-100" style={{ textShadow: '0 2px 15px rgba(255,255,255,0.3)' }}>Join</span> <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-cyan-400 font-black transition-all duration-500 hover:from-green-300 hover:to-cyan-300" style={{ textShadow: '0 3px 18px rgba(34,197,94,0.4)' }}>500+</span> <span className="text-white transition-all duration-500 hover:text-gray-100" style={{ textShadow: '0 2px 15px rgba(255,255,255,0.3)' }}>winners.</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-100 to-white transition-all duration-500 hover:from-gray-50 hover:to-gray-50" style={{ textShadow: '0 0 15px rgba(255,255,255,0.7), 0 0 30px rgba(255,255,255,0.4)', filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.3))' }}>Join</span> <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-50 to-white font-black transition-all duration-500 hover:from-gray-100 hover:to-gray-100" style={{ textShadow: '0 0 18px rgba(255,255,255,0.8), 0 0 36px rgba(255,255,255,0.5)', filter: 'drop-shadow(0 2px 3px rgba(0,0,0,0.3))' }}>500+</span> <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-100 to-white transition-all duration-500 hover:from-gray-50 hover:to-gray-50" style={{ textShadow: '0 0 15px rgba(255,255,255,0.7), 0 0 30px rgba(255,255,255,0.4)', filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.3))' }}>winners.</span>
                 <br />
-                <span className="text-yellow-400 font-black transition-all duration-500 hover:text-yellow-300" style={{ textShadow: '0 4px 22px rgba(255,215,0,0.5), 0 8px 44px rgba(255,215,0,0.25)' }}>Start today!</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-50 to-white font-black transition-all duration-500 hover:from-gray-100 hover:to-gray-100" style={{ textShadow: '0 0 20px rgba(255,255,255,0.9), 0 0 40px rgba(255,255,255,0.6)', filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.4))' }}>Start today!</span>
               </p>
               <div className="flex justify-center lg:justify-start">
                 <button 
@@ -381,9 +381,9 @@ const HeroScrollSection: React.FC = () => {
                       window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
                     }
                   }}
-                  className="cursor-target group bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 text-white px-4 xs:px-6 sm:px-8 py-3 sm:py-4 rounded-full font-black text-sm xs:text-base sm:text-lg transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-orange-500/50 border-2 border-white hover:border-yellow-300 overflow-hidden relative"
+                  className="cursor-target group bg-gradient-to-r from-red-600 to-red-500 text-white px-4 xs:px-6 sm:px-8 py-3 sm:py-4 rounded-full font-black text-sm xs:text-base sm:text-lg transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-red-500/50 border-2 border-white hover:border-yellow-300 overflow-hidden relative"
                 >
-                  <span className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-orange-400 to-red-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                  <span className="absolute inset-0 bg-gradient-to-r from-red-700 to-red-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                   <span className="relative z-10 flex items-center gap-2">
                     GET YOURS NOW
                     <span className="group-hover:translate-x-1 transition-transform duration-200 text-xl">🚀</span>

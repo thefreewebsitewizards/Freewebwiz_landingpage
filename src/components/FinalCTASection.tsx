@@ -2,14 +2,14 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
-const FinalCTASection: React.FC = () => {
+const FinalCTASection: React.FC = React.memo(() => {
   const { ref, inView } = useInView({
     threshold: 0.3,
     triggerOnce: true,
   });
 
   return (
-    <section id="ready" className="py-20 bg-gradient-to-br from-purple-900 via-blue-900 to-cyan-900">
+    <section id="ready" className="py-20 bg-gradient-to-br from-black via-purple-950 to-slate-950">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
           ref={ref}
@@ -54,6 +54,6 @@ const FinalCTASection: React.FC = () => {
       </div>
     </section>
   );
-};
+});
 
 export default FinalCTASection;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const LogoScrollSection: React.FC = () => {
+const LogoScrollSection: React.FC = React.memo(() => {
   // Professional client logos with realistic branding
   const logos = [
     { name: 'Bella Vista', type: 'Italian Restaurant', icon: '🍝', color: 'from-red-500 to-orange-500' },
@@ -22,7 +22,7 @@ const LogoScrollSection: React.FC = () => {
   const duplicatedLogos = [...logos, ...logos];
 
   return (
-    <section className="relative py-12 sm:py-16 bg-gradient-to-b from-gray-900 via-slate-800 to-black overflow-hidden">
+    <section className="relative py-12 sm:py-16 bg-gradient-to-b from-gray-900 via-slate-800 to-gray-800 overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-r from-purple-900/10 via-transparent to-cyan-900/10" />
       {/* Subtle animated background orbs */}
@@ -105,6 +105,6 @@ const LogoScrollSection: React.FC = () => {
       </div>
     </section>
   );
-};
+});
 
 export default LogoScrollSection;
