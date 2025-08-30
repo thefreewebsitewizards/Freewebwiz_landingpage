@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Better Call FreeWebWiz - Free Website Creation</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-outline" id="cursorOutline"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <span class="logo-text">FreeWebWiz</span>
+                </div>
+                <div class="nav-links">
+                    <a href="#features" class="nav-link">Features</a>
+                    <a href="#testimonials" class="nav-link">Reviews</a>
+                    <a href="#pricing" class="nav-link">Pricing</a>
+                    <button class="nav-cta-btn" id="navCta">Get Started Free</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Light Rays -->
+    <section class="hero" id="hero">
+        <div class="light-rays-container" id="lightRays">
+            <div class="light-ray"></div>
+            <div class="light-ray"></div>
+            <div class="light-ray"></div>
+            <div class="light-ray"></div>
+            <div class="light-ray"></div>
+            <div class="light-ray"></div>
+            <div class="light-ray"></div>
+            <div class="light-ray"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="title-main">Better Call FreeWebWiz!</span>
+                        <span class="title-highlight">You need a website? You got one!</span>
+                    </h1>
+                    <p class="hero-subtitle">Listen, everybody needs a website. EVERYBODY. And I'm giving it to you FREE. That's right - FREE! No catch, no gimmicks, no fine print.</p>
+                    <div class="hero-cta">
+                        <button class="btn btn-primary hero-btn-primary" id="heroBtn">Get Your FREE Website (No Questions Asked)</button>
+                        <button class="btn btn-secondary hero-btn-secondary" id="demoBtn">Show Me The Deal</button>
+                    </div>
+                    <div class="social-proof-hero">
+                        <p>Don't just take my word for it - 50+ smart business owners already called!</p>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="phone-container" id="phoneContainer">
+                        <div class="phone-device">
+                            <div class="phone-shadow"></div>
+                            <div class="phone-frame">
+                                <div class="phone-notch"></div>
+                                <div class="phone-screen">
+                                    <div class="screen-content">
+                                        <div class="website-preview">
+                                            <div class="preview-header">
+                                                <div class="header-logo"></div>
+                                                <div class="header-nav">
+                                                    <div class="nav-item"></div>
+                                                    <div class="nav-item"></div>
+                                                    <div class="nav-item"></div>
+                                                </div>
+                                            </div>
+                                            <div class="preview-hero">
+                                                <div class="preview-text-line large"></div>
+                                                <div class="preview-text-line medium"></div>
+                                                <div class="preview-button"></div>
+                                            </div>
+                                            <div class="preview-cards">
+                                                <div class="preview-card card-1"></div>
+                                                <div class="preview-card card-2"></div>
+                                                <div class="preview-card card-3"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="phone-reflection"></div>
+                            </div>
+                            <div class="phone-glow"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-floating-elements">
+            <div class="floating-dot dot-1"></div>
+            <div class="floating-dot dot-2"></div>
+            <div class="floating-dot dot-3"></div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process" id="process">
+        <div class="container">
+            <div class="process-content">
+                <div class="process-item">
+                    <div class="process-icon">💼</div>
+                    <div class="process-text">
+                        <h2>Step 1: You Tell Me What You Need</h2>
+                        <p>Send me your business info, your vision, your dreams. I'll listen to every word.</p>
+                    </div>
+                </div>
+                <div class="process-item">
+                    <div class="process-icon">⚡</div>
+                    <div class="process-text">
+                        <h2>Step 2: I Build It For You (For FREE!)</h2>
+                        <p>24 hours later, you've got a website that'll make your competitors weep. No charge.</p>
+                    </div>
+                </div>
+                <div class="process-item">
+                    <div class="process-icon">💰</div>
+                    <div class="process-text">
+                        <h2>Step 3: You Get More Customers</h2>
+                        <p>Watch your phone ring. Watch orders pour in. Watch your bank account smile. It's that simple!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why Your Competition Is Scared</h2>
+                <p class="section-subtitle">Here's what you get when you call the best</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Professional Design That Works</h3>
+                    <p>Forget amateur hour. You get a website that looks like you paid thousands. Because you deserve better.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">📱</div>
+                    <h3>Mobile Perfect (Obviously)</h3>
+                    <p>Every screen, every device, every customer. Your website looks perfect everywhere. Non-negotiable.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Google Loves It (So Will You)</h3>
+                    <p>SEO built right in. Your customers will find you before they find your competition. That's the point.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">⏰</div>
+                    <h3>24-Hour Delivery (I'm Not Kidding)</h3>
+                    <p>You call today, you're online tomorrow. No excuses, no delays, no nonsense. Just results.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-icon">💪</div>
+                    <h3>Support When You Need It</h3>
+                    <p>Questions? Problems? Changes? I'm here. Your success is my success. Period.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="feature-icon">🌐</div>
+                    <h3>Free Hosting Setup Guide</h3>
+                    <p>I don't just build it and walk away. You get everything you need to go live. Everything.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Don't Take My Word For It</h2>
+                <p class="section-subtitle">Listen to the smart ones who already called</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="testimonial-quote">
+                        <p>"I couldn't believe it was completely free! The website looks like I paid a fortune. My photography business tripled in three months. TRIPLED!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SC</div>
+                        <div class="author-info">
+                            <div class="author-name">Sarah Chen</div>
+                            <div class="author-role">Portrait Photography</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-quote">
+                        <p>"Look, I'm a skeptical person. But this guy delivered exactly what he promised. My bakery went from local to legendary. No exaggeration."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MR</div>
+                        <div class="author-info">
+                            <div class="author-name">Maria Rodriguez</div>
+                            <div class="author-role">Sweet Dreams Bakery</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-quote">
+                        <p>"24 hours. That's all it took. One day I had no online presence, the next day I was booking clients left and right. This is the real deal."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JT</div>
+                        <div class="author-info">
+                            <div class="author-name">Jake Thompson</div>
+                            <div class="author-role">Fitness Influencer</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="testimonial-quote">
+                        <p>"Free website that looks like a million bucks? Brand partnerships started rolling in immediately. This changed everything for my business."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">EW</div>
+                        <div class="author-info">
+                            <div class="author-name">Emma Wilson</div>
+                            <div class="author-role">UGC Creator</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics -->
+    <section class="statistics">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="0">
+                    <div class="stat-number" data-count="100">0</div>
+                    <div class="stat-label">websites delivered</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-number" data-count="50">0</div>
+                    <div class="stat-label">happy customers</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-number" data-count="24">0</div>
+                    <div class="stat-label">hours delivery</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-number" data-count="100">0</div>
+                    <div class="stat-label">satisfaction guaranteed</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Stop Thinking. Start Clicking.</h2>
+                <p class="section-subtitle">Three ways to get the website you deserve</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="pricing-header">
+                        <h3>The Deal (It's FREE)</h3>
+                        <div class="price">
+                            <span class="price-amount">$0</span>
+                            <span class="price-period">No joke</span>
+                        </div>
+                        <p>Here's what you get for absolutely nothing. And before you ask - no, there's no catch.</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Custom website that looks expensive</li>
+                        <li>Works perfectly on every device</li>
+                        <li>SEO that actually works</li>
+                        <li>Contact forms that convert</li>
+                        <li>Social media integration</li>
+                        <li>Lightning-fast loading</li>
+                        <li>24-hour delivery guaranteed</li>
+                        <li>Easy content management</li>
+                        <li>Hosting setup guidance</li>
+                        <li>Email support included</li>
+                    </ul>
+                    <button class="btn btn-outline pricing-btn">Get Started (It's FREE!)</button>
+                </div>
+                <div class="pricing-card popular" data-aos="fade-up" data-aos-delay="100">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="pricing-header">
+                        <h3>Premium Support</h3>
+                        <div class="price">
+                            <span class="price-amount">$0</span>
+                            <span class="price-period">+ optional tip</span>
+                        </div>
+                        <p>Want the full treatment? Here's everything, plus ongoing support. Still starts at FREE.</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Everything in the free deal</li>
+                        <li>Advanced SEO optimization</li>
+                        <li>E-commerce ready</li>
+                        <li>Custom animations</li>
+                        <li>Analytics setup</li>
+                        <li>Priority support</li>
+                        <li>Monthly updates</li>
+                        <li>Performance optimization</li>
+                        <li>Security & backups</li>
+                        <li>Tips appreciated (not required)</li>
+                    </ul>
+                    <button class="btn btn-primary pricing-btn">I Want Everything</button>
+                </div>
+                <div class="pricing-card custom" data-aos="fade-up" data-aos-delay="200">
+                    <div class="custom-badge">For Visionaries</div>
+                    <div class="pricing-header">
+                        <h3>Custom Solutions</h3>
+                        <div class="price">
+                            <span class="price-amount">Custom Quote</span>
+                            <span class="price-period">Based on project</span>
+                        </div>
+                        <p>Need something special? Custom websites, advanced features, or unique requirements - we'll build exactly what you envision.</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Everything in Premium Support</li>
+                        <li>Custom design from scratch</li>
+                        <li>Advanced functionality</li>
+                        <li>E-commerce with custom features</li>
+                        <li>Third-party integrations</li>
+                        <li>Custom animations & effects</li>
+                        <li>Dedicated project manager</li>
+                        <li>Extended support period</li>
+                        <li>Multiple revisions included</li>
+                        <li>Priority development queue</li>
+                    </ul>
+                    <button class="btn btn-primary pricing-btn custom-btn">Get Custom Quote</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Stop Thinking. Start Clicking.</h2>
+                <p class="cta-subtitle">Your competitors are getting ahead while you're sitting here reading. Don't let them. Get your FREE website now. Today. Right now.</p>
+                <button class="btn btn-primary cta-btn" id="finalCta">Get My FREE Website Now</button>
+                <div class="cta-urgency">
+                    <p>Join 50+ smart business owners who already said YES</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-text">FreeWebWiz</span>
+                    <p>Better call the best. Every great website starts here.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#features">Features</a>
+                    <a href="#testimonials">Reviews</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#" id="contactLink">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 FreeWebWiz. All rights reserved. Better call the best!</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

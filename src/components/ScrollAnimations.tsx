@@ -10,11 +10,11 @@ const ScrollAnimations: React.FC = () => {
   
   // Memoize particle array to prevent recreation on every render
   const particles = useMemo(() => 
-    [...Array(shouldReduceMotion ? 3 : 6)].map((_, i) => ({
+    [...Array(shouldReduceMotion ? 0 : 3)].map((_, i) => ({
       id: i,
-      left: `${20 + (i * 15)}%`,
-      top: `${20 + (i * 10)}%`,
-      delay: `${i * 0.5}s`
+      left: `${30 + (i * 20)}%`,
+      top: `${30 + (i * 15)}%`,
+      delay: `${i * 0.8}s`
     })), [shouldReduceMotion]
   );
 

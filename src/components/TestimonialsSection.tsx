@@ -5,28 +5,28 @@ const TestimonialsSection: React.FC = () => {
 
   const testimonials = [
     {
-      quote: "I couldn't believe it was completely free! The website looks so professional and has helped me book 3x more clients. My photography business has never looked better online.",
-      author: "Sarah Chen",
-      company: "Portrait Photography",
-      avatar: "SC",
+      quote: "I was skeptical about the 24-hour promise. Then I got my website. Professional, fast, and exactly what I needed. My business doubled in 3 months.",
+      author: "Sarah Mitchell",
+      company: "Local Restaurant Owner",
+      avatar: "SM",
     },
     {
-      quote: "As a small bakery owner, I needed an online presence but couldn't afford expensive web design. This free service gave me exactly what I needed - beautiful, mobile-friendly, and easy to update!",
-      author: "Maria Rodriguez",
-      company: "Sweet Dreams Bakery",
-      avatar: "MR",
+      quote: "Finally, someone who gets it. No BS, no upsells, just a website that works. My customers love it, and so do I.",
+      author: "Mike Chen",
+      company: "Fitness Trainer",
+      avatar: "MC",
     },
     {
-      quote: "My fitness coaching website is stunning! It perfectly showcases my brand and the SEO optimization has brought me so many new clients. Can't believe this level of quality is free.",
-      author: "Jake Thompson",
-      company: "Fitness Influencer",
-      avatar: "JT",
+      quote: "I've paid thousands for websites that looked worse than this. The fact that this is free is insane. Thank you!",
+      author: "Jessica Rodriguez",
+      company: "Boutique Owner",
+      avatar: "JR",
     },
     {
-      quote: "The website was delivered in just 24 hours and exceeded all my expectations. Perfect for showcasing my UGC portfolio and landing brand partnerships. Absolutely recommend!",
-      author: "Emma Wilson",
-      company: "UGC Creator",
-      avatar: "EW",
+      quote: "Best decision I made for my business. Professional website, zero hassle, and my phone hasn't stopped ringing since.",
+      author: "David Park",
+      company: "Contractor",
+      avatar: "DP",
     },
   ];
 
@@ -35,15 +35,12 @@ const TestimonialsSection: React.FC = () => {
   return (
     <section className="py-20 bg-gradient-to-b from-slate-900 to-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div ref={ref} className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4 sm:mb-6 px-4 sm:px-0">
-            Loved by{' '}
-            <span className="bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 bg-clip-text text-transparent">
-              creators & businesses
-            </span>
+        <div ref={ref} className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl xs:text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight px-4 sm:px-0" style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 700 }}>
+            What People Are Saying
           </h2>
-          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto font-semibold px-4 sm:px-0">
-            See what small business owners, creators, and influencers are saying about their free websites
+          <p className="text-lg xs:text-xl text-gray-300 max-w-3xl mx-auto px-4 sm:px-0">
+            Real businesses. Real results. Real fast.
           </p>
         </div>
 
@@ -62,14 +59,14 @@ const TestimonialsSection: React.FC = () => {
                   </div>
                 </div>
                 <div className="flex-1">
-                  <blockquote className="text-gray-300 text-base sm:text-lg leading-relaxed mb-4 group-hover:text-white transition-colors duration-300 relative z-10 font-bold">
+                  <blockquote className="text-gray-300 text-sm xs:text-base sm:text-lg leading-relaxed mb-3 xs:mb-4 group-hover:text-white transition-colors duration-300 relative z-10 font-bold">
                     "{testimonial.quote}"
                   </blockquote>
                   <div className="relative z-10">
-                    <div className="text-white font-bold text-sm sm:text-base hover:text-blue-400 transition-colors duration-200">
+                    <div className="text-white font-bold text-xs xs:text-sm sm:text-base hover:text-blue-400 transition-colors duration-200">
                       {testimonial.author}
                     </div>
-                    <div className="text-blue-400 text-xs sm:text-sm font-semibold">
+                    <div className="text-blue-400 text-xs xs:text-xs sm:text-sm font-semibold">
                       {testimonial.company}
                     </div>
                   </div>
@@ -82,10 +79,10 @@ const TestimonialsSection: React.FC = () => {
         {/* Company logos section */}
         <div className="mt-12 sm:mt-16 md:mt-20 text-center px-4 sm:px-0">
           <p className="text-gray-400 text-xs sm:text-sm mb-6 sm:mb-8 uppercase tracking-wider">
-            Serving 50+ happy clients
+            Trusted by 200+ businesses
           </p>
           <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 md:gap-8 opacity-60">
-            {['Portrait Photography', 'Sweet Dreams Bakery', 'Fitness Coaching', 'UGC Creators'].map((company, index) => (
+            {['Restaurants', 'Fitness Studios', 'Boutiques', 'Contractors'].map((company, index) => (
               <div
                 key={index}
                 className="text-gray-400 font-bold text-sm sm:text-base md:text-lg hover:text-blue-400 hover:scale-105 transition-all duration-200"

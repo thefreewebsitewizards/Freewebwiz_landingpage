@@ -8,71 +8,55 @@ interface LoadingScreenProps {
 const LoadingScreen: React.FC<LoadingScreenProps> = ({ isLoading, onComplete }) => {
   useEffect(() => {
     if (!isLoading && onComplete) {
-      const timer = setTimeout(onComplete, 500);
+      const timer = setTimeout(onComplete, 200);
       return () => clearTimeout(timer);
     }
   }, [isLoading, onComplete]);
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black transition-opacity duration-500"
-      style={{ opacity: isLoading ? 1 : 0 }}
-    >
-      {/* Simplified Background */}
-      <div
-        className="absolute inset-0 animate-pulse"
-        style={{
-          background: "radial-gradient(circle at 50% 50%, rgba(34, 197, 94, 0.1) 0%, rgba(0, 0, 0, 1) 70%)",
-          animationDuration: '3s'
-        }}
-      />
+    <div className="fixed inset-0 z-50 bg-gradient-to-br from-gray-900 via-black to-purple-900/20 flex items-center justify-center overflow-hidden">
+      {/* Enhanced Background */}
+      <div className="absolute inset-0">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-float" style={{animationDelay: '2s'}}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl animate-float" style={{animationDelay: '4s'}}></div>
+      </div>
 
-      {/* Loading Content */}
+      {/* Main Content */}
       <div className="relative z-10 text-center">
         {/* Logo/Brand */}
-        <div className="mb-8 animate-fade-in">
-          <h1 
-            className="text-4xl md:text-5xl font-black text-white mb-2 animate-pulse"
-            style={{
-              textShadow: "0 0 20px rgba(34, 197, 94, 0.5)",
-              animationDuration: '2s'
-            }}
-          >
+        <div className="mb-8">
+          <h1 className="text-4xl md:text-5xl font-black bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text text-transparent mb-2 tracking-tight animate-pulse">
             FreeWebWiz
           </h1>
-          <p className="text-gray-400 text-lg">
-            Building your digital presence
+          <p className="text-gray-300 text-lg font-medium animate-fade-in">
+            Preparing your experience...
           </p>
         </div>
 
-        {/* Loading Animation */}
-        <div className="flex justify-center items-center space-x-2 mb-6">
-          {[...Array(3)].map((_, i) => (
-            <div
-              key={i}
-              className="w-3 h-3 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full animate-bounce"
+        {/* Enhanced Loading Animation */}
+        <div className="mb-8">
+          <div className="relative w-16 h-16 mx-auto">
+            <div className="absolute inset-0 border-4 border-gray-700/50 rounded-full"></div>
+            <div className="absolute inset-0 border-4 border-transparent border-t-purple-500 rounded-full animate-spin"></div>
+            <div className="absolute inset-2 border-2 border-transparent border-t-blue-400 rounded-full animate-spin" style={{animationDirection: 'reverse', animationDuration: '1.5s'}}></div>
+            <div className="absolute inset-4 border border-transparent border-t-cyan-300 rounded-full animate-spin" style={{animationDuration: '2s'}}></div>
+          </div>
+        </div>
+
+        {/* Enhanced Progress Bar */}
+        <div className="w-64 mx-auto">
+          <div className="h-2 bg-gray-800/50 rounded-full overflow-hidden backdrop-blur-sm">
+            <div 
+              className="h-full bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-400 rounded-full transition-all duration-300 ease-out relative overflow-hidden"
               style={{
-                animationDelay: `${i * 0.2}s`,
-                animationDuration: '1.2s'
+                animation: 'progress 2.5s ease-out forwards'
               }}
-            />
-          ))}
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-gradient-x"></div>
+            </div>
+          </div>
         </div>
-
-        {/* Progress Bar */}
-        <div className="w-64 h-1 bg-gray-800 rounded-full mx-auto overflow-hidden">
-          <div
-            className="h-full bg-gradient-to-r from-green-400 via-emerald-500 to-green-600 rounded-full animate-progress"
-            style={{
-              animation: 'progress 2.5s ease-out forwards'
-            }}
-          />
-        </div>
-
-        {/* Loading Text */}
-        <p className="text-gray-500 text-sm mt-4">
-          Preparing your experience...
-        </p>
       </div>
 
       {/* Simplified Floating Particles */}
