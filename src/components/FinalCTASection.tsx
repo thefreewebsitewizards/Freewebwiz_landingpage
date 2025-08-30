@@ -34,10 +34,10 @@ const FinalCTASection: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="space-y-4 md:space-y-0 md:space-x-4 md:flex md:justify-center md:items-center"
           >
-            <button className="w-full md:w-auto bg-gradient-to-r from-white via-cyan-50 to-white text-purple-900 px-4 xs:px-6 sm:px-8 py-3 xs:py-4 rounded-full font-black text-sm xs:text-base sm:text-lg hover:from-cyan-50 hover:via-white hover:to-cyan-50 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl max-w-xs xs:max-w-sm sm:max-w-md mx-auto sm:mx-0">
+            <button className="cursor-target w-full md:w-auto bg-gradient-to-r from-white via-cyan-50 to-white text-purple-900 px-4 xs:px-6 sm:px-8 py-3 xs:py-4 rounded-full font-black text-sm xs:text-base sm:text-lg hover:from-cyan-50 hover:via-white hover:to-cyan-50 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl max-w-xs xs:max-w-sm sm:max-w-md mx-auto sm:mx-0">
               Get My Free Website Now 🚀
             </button>
-            <button className="w-full md:w-auto border-2 border-gradient-to-r border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-gradient-to-r hover:from-white/10 hover:to-cyan-100/10 hover:scale-105 transition-all duration-300">
+            <button className="cursor-target w-full md:w-auto border-2 border-gradient-to-r border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-gradient-to-r hover:from-white/10 hover:to-cyan-100/10 hover:scale-105 transition-all duration-300">
               See Examples
             </button>
           </motion.div>

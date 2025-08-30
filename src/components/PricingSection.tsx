@@ -171,7 +171,7 @@ const PricingSection: React.FC = () => {
               </ul>
 
               <button
-                className={`relative w-full py-3 xs:py-4 px-4 xs:px-6 rounded-full font-black text-sm xs:text-base sm:text-lg transition-all duration-200 overflow-hidden group/btn z-10 hover:scale-102 hover:-translate-y-1 touch-manipulation max-w-xs xs:max-w-sm sm:max-w-none mx-auto ${
+                className={`cursor-target relative w-full py-3 xs:py-4 px-4 xs:px-6 rounded-full font-black text-sm xs:text-base sm:text-lg transition-all duration-200 overflow-hidden group/btn z-10 hover:scale-102 hover:-translate-y-1 touch-manipulation max-w-xs xs:max-w-sm sm:max-w-none mx-auto ${
                   plan.popular
                     ? 'bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-white hover:shadow-lg hover:shadow-blue-500/30'
                     : 'bg-white text-slate-900 hover:shadow-lg hover:shadow-black/20'
@@ -192,7 +192,7 @@ const PricingSection: React.FC = () => {
           <p className="text-gray-300 mb-6 sm:mb-8 text-base xs:text-lg">
             Join 200+ businesses that chose the smart way to get online.
           </p>
-          <button className="bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-white px-4 xs:px-6 sm:px-8 py-3 xs:py-4 rounded-full font-black text-sm xs:text-base sm:text-lg hover:shadow-lg hover:shadow-blue-500/25 hover:scale-105 transition-all duration-200 max-w-xs xs:max-w-sm sm:max-w-none mx-auto">
+          <button className="cursor-target bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-white px-4 xs:px-6 sm:px-8 py-3 xs:py-4 rounded-full font-black text-sm xs:text-base sm:text-lg hover:shadow-lg hover:shadow-blue-500/25 hover:scale-105 transition-all duration-200 max-w-xs xs:max-w-sm sm:max-w-none mx-auto">
             Start My Free Website
           </button>
         </div>

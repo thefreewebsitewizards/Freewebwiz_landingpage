@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import CardNav from './components/CardNav';
+import TargetCursor from './components/TargetCursor';
 import logo from './logo.svg';
 import HeroScrollSection from './components/HeroScrollSection';
 import SectionTransition from './components/SectionTransition';
@@ -36,6 +37,12 @@ function App() {
 
   return (
     <>
+      {/* Custom Cursor */}
+      <TargetCursor 
+        spinDuration={2}
+        hideDefaultCursor={true}
+      />
+      
       {/* Loading Screen */}
       <AnimatePresence>
         {isLoading && (

@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef, useState, useCallback } from "react";
+import React, { useLayoutEffect, useRef, useState, useCallback, useEffect } from "react";
 import { gsap } from "gsap";
 
 type CardNavLink = {
@@ -39,6 +39,9 @@ const CardNav: React.FC<CardNavProps> = ({
 }) => {
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [glowIntensity, setGlowIntensity] = useState(0);
+  const [glowPosition, setGlowPosition] = useState({ x: 0, y: 0 });
   const navRef = useRef<HTMLDivElement | null>(null);
   const cardsRef = useRef<HTMLDivElement[]>([]);
   const tlRef = useRef<gsap.core.Timeline | null>(null);
@@ -174,6 +177,82 @@ const CardNav: React.FC<CardNavProps> = ({
     if (el) cardsRef.current[i] = el;
   };
 
+  const handleSmoothScroll = (targetId: string) => {
+    // Close menu first on mobile
+    if (isExpanded) {
+      toggleMenu();
+    }
+    
+    // Add a small delay to ensure lazy-loaded sections are rendered
+    setTimeout(() => {
+      const element = document.querySelector(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 100);
+  };
+
+  // Calculate distance from cursor to navbar border
+  const calculateProximity = useCallback((mouseX: number, mouseY: number) => {
+    if (!navRef.current) return;
+    
+    const rect = navRef.current.getBoundingClientRect();
+    const proximityThreshold = 100; // Distance in pixels to start effect
+    
+    // Calculate distance to each border
+    const distanceToTop = Math.abs(mouseY - rect.top);
+    const distanceToBottom = Math.abs(mouseY - rect.bottom);
+    const distanceToLeft = Math.abs(mouseX - rect.left);
+    const distanceToRight = Math.abs(mouseX - rect.right);
+    
+    // Find minimum distance to any border
+    const minDistance = Math.min(distanceToTop, distanceToBottom, distanceToLeft, distanceToRight);
+    
+    // Calculate intensity (1 = at border, 0 = at threshold distance)
+    const intensity = Math.max(0, 1 - (minDistance / proximityThreshold));
+    
+    // Determine closest border position for glow placement
+    let glowX = mouseX;
+    let glowY = mouseY;
+    
+    if (minDistance === distanceToTop) glowY = rect.top;
+    else if (minDistance === distanceToBottom) glowY = rect.bottom;
+    else if (minDistance === distanceToLeft) glowX = rect.left;
+    else if (minDistance === distanceToRight) glowX = rect.right;
+    
+    setGlowIntensity(intensity);
+    setGlowPosition({ x: glowX, y: glowY });
+  }, []);
+
+  // Mouse move handler with throttling
+  const handleMouseMove = useCallback((e: MouseEvent) => {
+    const mouseX = e.clientX;
+    const mouseY = e.clientY;
+    
+    setMousePosition({ x: mouseX, y: mouseY });
+    calculateProximity(mouseX, mouseY);
+  }, [calculateProximity]);
+
+  // Add mouse tracking effect
+  useEffect(() => {
+    let rafId: number;
+    
+    const throttledMouseMove = (e: MouseEvent) => {
+      if (rafId) return;
+      rafId = requestAnimationFrame(() => {
+        handleMouseMove(e);
+        rafId = 0;
+      });
+    };
+    
+    document.addEventListener('mousemove', throttledMouseMove);
+    
+    return () => {
+      document.removeEventListener('mousemove', throttledMouseMove);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
+  }, [handleMouseMove]);
+
   return (
     <div
       className={`card-nav-container fixed left-1/2 -translate-x-1/2 w-[95%] xs:w-[90%] max-w-[800px] z-[999] top-3 xs:top-4 ${className}`}
@@ -181,7 +260,12 @@ const CardNav: React.FC<CardNavProps> = ({
       <nav
         ref={navRef}
         className={`card-nav ${isExpanded ? "open" : ""} block h-[56px] xs:h-[60px] p-0 rounded-lg xs:rounded-xl shadow-lg backdrop-blur-xl border border-white/20 relative overflow-hidden will-change-[height] transition-all duration-300`}
-        style={{ backgroundColor: 'rgba(255, 255, 255, 0.05)' }}
+        style={{ 
+          backgroundColor: 'rgba(255, 255, 255, 0.05)',
+          boxShadow: glowIntensity > 0 
+            ? `0 0 ${20 * glowIntensity}px rgba(139, 92, 246, ${0.3 * glowIntensity}), 0 0 ${40 * glowIntensity}px rgba(139, 92, 246, ${0.1 * glowIntensity})` 
+            : 'none'
+        }}
       >
         <div className="card-nav-top absolute inset-x-0 top-0 h-[56px] xs:h-[60px] flex items-center justify-between px-4 xs:px-6 z-[2]">
           <div
@@ -192,6 +276,14 @@ const CardNav: React.FC<CardNavProps> = ({
             tabIndex={0}
             style={{ color: menuColor || "#fff" }}
           >
+          {/* Proximity glow effect */}
+          <div 
+            className="absolute inset-0 pointer-events-none rounded-lg xs:rounded-xl transition-opacity duration-200"
+            style={{
+              opacity: glowIntensity,
+              background: `radial-gradient(circle at ${glowPosition.x - (navRef.current?.getBoundingClientRect().left || 0)}px ${glowPosition.y - (navRef.current?.getBoundingClientRect().top || 0)}px, rgba(139, 92, 246, 0.15) 0%, rgba(139, 92, 246, 0.05) 30%, transparent 70%)`
+            }}
+          />
             <div
               className={`hamburger-line w-[26px] xs:w-[30px] h-[2px] bg-current transition-[transform,opacity,margin] duration-300 ease-linear [transform-origin:50%_50%] ${
                 isHamburgerOpen ? "translate-y-[3.5px] xs:translate-y-[4px] rotate-45" : ""
@@ -210,7 +302,8 @@ const CardNav: React.FC<CardNavProps> = ({
 
           <button
             type="button"
-            className="card-nav-cta-button hidden md:inline-flex items-center justify-center border-0 rounded-[calc(0.75rem-0.2rem)] px-6 py-2.5 h-auto font-semibold cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25 active:scale-95 relative overflow-hidden group"
+            onClick={() => handleSmoothScroll('#ready')}
+            className="cursor-target card-nav-cta-button hidden md:inline-flex items-center justify-center border-0 rounded-[calc(0.75rem-0.2rem)] px-6 py-2.5 h-auto font-semibold cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25 active:scale-95 relative overflow-hidden group"
             style={{ 
               background: buttonBgColor?.includes('gradient') ? buttonBgColor : `linear-gradient(135deg, ${buttonBgColor || '#8B5CF6'}, #3B82F6)`,
               backgroundColor: buttonBgColor?.includes('gradient') ? undefined : buttonBgColor,
@@ -246,17 +339,17 @@ const CardNav: React.FC<CardNavProps> = ({
               </div>
               <div className="nav-card-links mt-auto flex flex-col gap-[2px]">
                 {item.links?.map((lnk, i) => (
-                  <a
+                  <button
                     key={`${lnk.label}-${i}`}
-                    className="nav-card-link inline-flex items-center gap-[4px] xs:gap-[6px] no-underline cursor-pointer transition-opacity duration-300 hover:opacity-75 active:opacity-60 text-[14px] xs:text-[15px] md:text-[16px] touch-manipulation min-h-[44px] xs:min-h-auto py-1 xs:py-0"
-                    href={lnk.href}
+                    className="cursor-target nav-card-link inline-flex items-center gap-[4px] xs:gap-[6px] no-underline cursor-pointer transition-opacity duration-300 hover:opacity-75 active:opacity-60 text-[14px] xs:text-[15px] md:text-[16px] touch-manipulation min-h-[44px] xs:min-h-auto py-1 xs:py-0 bg-transparent border-0 text-left w-full relative z-10"
+                    onClick={() => handleSmoothScroll(lnk.href)}
                     aria-label={lnk.ariaLabel}
                   >
                     <svg className="nav-card-link-icon shrink-0 w-3 xs:w-4 h-3 xs:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7v10" />
                     </svg>
                     {lnk.label}
-                  </a>
+                  </button>
                 ))}
               </div>
             </div>

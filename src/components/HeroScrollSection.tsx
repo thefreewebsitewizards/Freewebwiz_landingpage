@@ -51,7 +51,7 @@ const HeroScrollSection: React.FC = () => {
                   const processSection = document.getElementById('process');
                   processSection?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="group bg-gradient-to-r from-purple-600 to-cyan-600 border-2 border-white text-white px-4 xs:px-6 sm:px-8 py-3 sm:py-4 rounded-full font-black text-sm xs:text-base sm:text-lg transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-purple-500/50 hover:border-yellow-400 w-full sm:w-auto max-w-xs xs:max-w-sm sm:max-w-none mx-auto sm:mx-0"
+                className="cursor-target group bg-gradient-to-r from-purple-600 to-cyan-600 border-2 border-white text-white px-4 xs:px-6 sm:px-8 py-3 sm:py-4 rounded-full font-black text-sm xs:text-base sm:text-lg transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-purple-500/50 hover:border-yellow-400 w-full sm:w-auto max-w-xs xs:max-w-sm sm:max-w-none mx-auto sm:mx-0"
               >
                 <span className="flex items-center gap-2 justify-center">
                   SEE HOW
@@ -208,7 +208,7 @@ const HeroScrollSection: React.FC = () => {
                     window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
                   }
                 }}
-                className="group bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 text-white px-4 xs:px-6 sm:px-8 py-3 sm:py-4 rounded-full font-black text-sm xs:text-base sm:text-lg transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-orange-500/50 border-2 border-white hover:border-yellow-300 overflow-hidden relative w-full sm:w-auto max-w-xs xs:max-w-sm sm:max-w-none mx-auto sm:mx-0"
+                className="cursor-target group bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 text-white px-4 xs:px-6 sm:px-8 py-3 sm:py-4 rounded-full font-black text-sm xs:text-base sm:text-lg transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-orange-500/50 border-2 border-white hover:border-yellow-300 overflow-hidden relative w-full sm:w-auto max-w-xs xs:max-w-sm sm:max-w-none mx-auto sm:mx-0"
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-orange-400 to-red-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                 <span className="relative z-10 flex items-center gap-2 justify-center">
@@ -241,7 +241,7 @@ const HeroScrollSection: React.FC = () => {
                     const processSection = document.getElementById('process');
                     processSection?.scrollIntoView({ behavior: 'smooth' });
                   }}
-                  className="group bg-gradient-to-r from-purple-600 to-cyan-600 border-2 border-white text-white px-4 xs:px-6 sm:px-8 py-3 sm:py-4 rounded-full font-black text-sm xs:text-base sm:text-lg transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-purple-500/50 hover:border-yellow-400"
+                  className="cursor-target group bg-gradient-to-r from-purple-600 to-cyan-600 border-2 border-white text-white px-4 xs:px-6 sm:px-8 py-3 sm:py-4 rounded-full font-black text-sm xs:text-base sm:text-lg transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-purple-500/50 hover:border-yellow-400"
                 >
                   <span className="flex items-center gap-2">
                     SEE HOW
@@ -381,7 +381,7 @@ const HeroScrollSection: React.FC = () => {
                       window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
                     }
                   }}
-                  className="group bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 text-white px-4 xs:px-6 sm:px-8 py-3 sm:py-4 rounded-full font-black text-sm xs:text-base sm:text-lg transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-orange-500/50 border-2 border-white hover:border-yellow-300 overflow-hidden relative"
+                  className="cursor-target group bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 text-white px-4 xs:px-6 sm:px-8 py-3 sm:py-4 rounded-full font-black text-sm xs:text-base sm:text-lg transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-orange-500/50 border-2 border-white hover:border-yellow-300 overflow-hidden relative"
                 >
                   <span className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-orange-400 to-red-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                   <span className="relative z-10 flex items-center gap-2">

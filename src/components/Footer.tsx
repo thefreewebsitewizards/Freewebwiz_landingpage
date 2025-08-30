@@ -19,16 +19,16 @@ const Footer: React.FC = () => {
 
           {/* Footer links */}
           <div className="flex flex-wrap gap-4 xs:gap-6 md:gap-8">
-            <a href="#features" className="text-sm xs:text-base text-gray-400 hover:text-white transition-colors duration-200">
+            <a href="#features" className="cursor-target text-sm xs:text-base text-gray-400 hover:text-white transition-colors duration-200">
               Features
             </a>
-            <a href="#testimonials" className="text-sm xs:text-base text-gray-400 hover:text-white transition-colors duration-200">
+            <a href="#testimonials" className="cursor-target text-sm xs:text-base text-gray-400 hover:text-white transition-colors duration-200">
               Reviews
             </a>
-            <a href="#pricing" className="text-sm xs:text-base text-gray-400 hover:text-white transition-colors duration-200">
+            <a href="#pricing" className="cursor-target text-sm xs:text-base text-gray-400 hover:text-white transition-colors duration-200">
               Pricing
             </a>
-            <a href="#contact" className="text-sm xs:text-base text-gray-400 hover:text-white transition-colors duration-200">
+            <a href="#contact" className="cursor-target text-sm xs:text-base text-gray-400 hover:text-white transition-colors duration-200">
               Contact
             </a>
           </div>
